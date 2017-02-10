@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Kapital;
 DROP TABLE IF EXISTS Eintrag;
 
 
---  private String personNr = "";
+--  private String personNr = ""; 
 --  private String familienstand = "";
 --  private String kundenNummer = "";
 --  private String vorname = "";
