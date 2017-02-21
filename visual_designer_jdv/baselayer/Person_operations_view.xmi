@@ -678,11 +678,19 @@
       <tags xmi:uuid="mmuuid:3f77a9b6-04fb-477c-aae8-035699647a7c" key="relational:java-method" value="getListPersons"/>
       <tags xmi:uuid="mmuuid:28259f0e-1d24-4013-8d48-1ddc173e62ce" key="relational:udfJarPath" value="lib/userfunctions-0.0.1-SNAPSHOT.jar"/>
     </annotations>
+    <annotations xmi:uuid="mmuuid:568c953c-c779-4cb5-ba40-562438716444" annotatedObject="mmuuid/dfa29b82-382e-4e3e-acaa-8e6194aea639">
+      <tags xmi:uuid="mmuuid:04902db9-d192-42d9-ab89-382ee3f4cc3c" key="relational:function-category" value="person"/>
+      <tags xmi:uuid="mmuuid:6bbe0f2d-c918-40ef-a52c-7f2801c565b0" key="relational:java-class" value="userfunctions.functions.PersonService"/>
+      <tags xmi:uuid="mmuuid:cdaf538b-e8af-4c8b-b00e-646a49e96fab" key="relational:java-method" value="getListOfPersonsByJob"/>
+      <tags xmi:uuid="mmuuid:23243793-cb55-4954-9202-c67094ed4550" key="relational:udfJarPath" value="lib/userfunctions-0.0.1-SNAPSHOT.jar"/>
+    </annotations>
   </mmcore:AnnotationContainer>
   <diagram:DiagramContainer xmi:uuid="mmuuid:965a3360-dcc2-4d00-994b-d8f828901b22">
     <diagram xmi:uuid="mmuuid:a05d7f27-d4af-428a-a7cf-daf52a84da4c" type="packageDiagramType" target="mmuuid/188a4cc2-7cc7-4e54-8c00-332bd9b94169">
-      <diagramEntity xmi:uuid="mmuuid:a1a7635f-b2ca-4c9f-a2e5-05f87316df03" modelObject="mmuuid/ec9b0c96-3c85-4427-ab7a-aafb2f5bfe7b" xPosition="244" yPosition="24"/>
+      <diagramEntity xmi:uuid="mmuuid:a1a7635f-b2ca-4c9f-a2e5-05f87316df03" modelObject="mmuuid/ec9b0c96-3c85-4427-ab7a-aafb2f5bfe7b" xPosition="445" yPosition="41"/>
       <diagramEntity xmi:uuid="mmuuid:d1997c9a-e505-43fa-a8f1-9045f01bd038" modelObject="mmuuid/f02c739a-e79f-4c7a-ad6b-141c1497ec9f" xPosition="32" yPosition="37"/>
+      <diagramEntity xmi:uuid="mmuuid:3ce32119-4c5d-4113-a407-b8a5f45dc89c" modelObject="mmuuid/a137304e-0358-4339-ab5d-98277feee3be" xPosition="227" yPosition="211"/>
+      <diagramEntity xmi:uuid="mmuuid:0469ea6d-ca28-4ed4-93cd-ab3b6339ebb4" modelObject="mmuuid/dfa29b82-382e-4e3e-acaa-8e6194aea639" xPosition="698" yPosition="137"/>
     </diagram>
   </diagram:DiagramContainer>
   <transformation:TransformationContainer xmi:uuid="mmuuid:f9e085c0-e1a0-4fe1-a69b-46810084be31">
@@ -698,6 +706,19 @@
       <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:f0eefb07-f32a-4c6b-a77c-ccb197560a69" outputs="mmuuid/fb7896b9-1bc2-42fc-af01-68c6659ceb60"/>
       <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:b17e43d2-f85f-42f3-bea8-c8d16e03a6e5" outputs="mmuuid/935fee9e-1faa-4078-bed1-84ef4bfb37ce"/>
       <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:875af370-fc4d-4f9e-9401-fd9a6172475a" outputs="mmuuid/b900770a-2248-4678-b848-352224d1be54"/>
+    </transformationMappings>
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:bd8bc20c-7ebe-47ec-9844-311044e334b7" outputs="mmuuid/a137304e-0358-4339-ab5d-98277feee3be" target="mmuuid/a137304e-0358-4339-ab5d-98277feee3be">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:c8bb6054-6c9d-4d75-ac8b-c651a04be260">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:b2b8d057-0a3a-4394-8c20-551a2b454572" selectSql="BEGIN&#xa;&#x9;SELECT OT.personId AS personId, OT.personTyp AS personTyp, OT.obligation AS obligation FROM OBJECTTABLE('person_rows' PASSING PersonService_getListPersonByJob(Person_operations_view.PersonListByJob.jobType) AS person_rows COLUMNS personId string 'teiid_row.personId', personTyp string 'teiid_row.personTyp', obligation string 'teiid_row.obligation') AS OT;&#xa;END"/>
+      </helper>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:ee720312-60e5-4470-935b-6bbf0c2ce5bc" outputs="mmuuid/ab0f5693-ac03-4bde-98e9-634a024e36df"/>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:670dc600-718f-4cb2-9ed2-4af434253d7d" outputs="mmuuid/66f879ca-6f46-4f18-96ca-fb395a210ba4"/>
+      <nested xsi:type="transformation:TransformationMapping" xmi:uuid="mmuuid:9182d16a-7c9d-491f-b63f-cd37541212fd" outputs="mmuuid/45f2acfb-d540-404d-9a0b-cdeeba1f4402"/>
+    </transformationMappings>
+    <transformationMappings xsi:type="transformation:SqlTransformationMappingRoot" xmi:uuid="mmuuid:6732fdca-9878-43b8-8d8b-9295d343ca12" outputs="mmuuid/dfa29b82-382e-4e3e-acaa-8e6194aea639" target="mmuuid/dfa29b82-382e-4e3e-acaa-8e6194aea639">
+      <helper xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:3eb3c46a-b14b-438e-bc5a-81176345e194">
+        <nested xsi:type="transformation:SqlTransformation" xmi:uuid="mmuuid:59f0d1e5-1e16-4ca5-ba87-f91257e81bf2"/>
+      </helper>
     </transformationMappings>
   </transformation:TransformationContainer>
   <relational:Procedure xmi:uuid="mmuuid:ec9b0c96-3c85-4427-ab7a-aafb2f5bfe7b" name="PersonService" nameInSource="PersonService" function="true">
@@ -716,4 +737,28 @@
       <type href="http://www.w3.org/2001/XMLSchema#string"/>
     </columns>
   </relational:BaseTable>
+  <relational:Procedure xmi:uuid="mmuuid:a137304e-0358-4339-ab5d-98277feee3be" name="PersonListByJob" nameInSource="PersonListByJob">
+    <parameters xmi:uuid="mmuuid:a852cf43-b9c0-4ccf-919f-af8e9dd1f042" name="jobType" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </parameters>
+    <result xmi:uuid="mmuuid:965fd054-abee-4029-9b97-6389d4fbd322" name="NewProcedureResult">
+      <columns xmi:uuid="mmuuid:ab0f5693-ac03-4bde-98e9-634a024e36df" name="personId">
+        <type href="http://www.w3.org/2001/XMLSchema#string"/>
+      </columns>
+      <columns xmi:uuid="mmuuid:66f879ca-6f46-4f18-96ca-fb395a210ba4" name="personTyp">
+        <type href="http://www.w3.org/2001/XMLSchema#string"/>
+      </columns>
+      <columns xmi:uuid="mmuuid:45f2acfb-d540-404d-9a0b-cdeeba1f4402" name="obligation">
+        <type href="http://www.w3.org/2001/XMLSchema#string"/>
+      </columns>
+    </result>
+  </relational:Procedure>
+  <relational:Procedure xmi:uuid="mmuuid:dfa29b82-382e-4e3e-acaa-8e6194aea639" name="PersonService_getListPersonByJob" nameInSource="PersonService_getListPersonByJob" function="true">
+    <parameters xmi:uuid="mmuuid:1e21d7d0-2ad7-404b-b09d-66066c6ff42c" name="jobName" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
+      <type href="http://www.w3.org/2001/XMLSchema#string"/>
+    </parameters>
+    <parameters xmi:uuid="mmuuid:038c2155-0c6a-428a-90c6-ee68fd83e91f" name="personList" direction="RETURN" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
+      <type href="http://www.metamatrix.com/metamodels/SimpleDatatypes-instance#object"/>
+    </parameters>
+  </relational:Procedure>
 </xmi:XMI>
