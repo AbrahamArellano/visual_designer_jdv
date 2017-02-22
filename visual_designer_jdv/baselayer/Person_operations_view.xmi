@@ -738,23 +738,23 @@
     </columns>
   </relational:BaseTable>
   <relational:Procedure xmi:uuid="mmuuid:a137304e-0358-4339-ab5d-98277feee3be" name="PersonListByJob" nameInSource="PersonListByJob">
-    <parameters xmi:uuid="mmuuid:a852cf43-b9c0-4ccf-919f-af8e9dd1f042" name="jobType" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
+    <parameters xmi:uuid="mmuuid:a852cf43-b9c0-4ccf-919f-af8e9dd1f042" name="jobType" length="20" nullable="NULLABLE_UNKNOWN" radix="0">
       <type href="http://www.w3.org/2001/XMLSchema#string"/>
     </parameters>
-    <result xmi:uuid="mmuuid:965fd054-abee-4029-9b97-6389d4fbd322" name="NewProcedureResult">
-      <columns xmi:uuid="mmuuid:ab0f5693-ac03-4bde-98e9-634a024e36df" name="personId">
+    <result xmi:uuid="mmuuid:965fd054-abee-4029-9b97-6389d4fbd322" name="ResultPersonListByJob" nameInSource="ResultPersonListByJob">
+      <columns xmi:uuid="mmuuid:ab0f5693-ac03-4bde-98e9-634a024e36df" name="personId" length="20">
         <type href="http://www.w3.org/2001/XMLSchema#string"/>
       </columns>
-      <columns xmi:uuid="mmuuid:66f879ca-6f46-4f18-96ca-fb395a210ba4" name="personTyp">
+      <columns xmi:uuid="mmuuid:66f879ca-6f46-4f18-96ca-fb395a210ba4" name="personTyp" length="20">
         <type href="http://www.w3.org/2001/XMLSchema#string"/>
       </columns>
-      <columns xmi:uuid="mmuuid:45f2acfb-d540-404d-9a0b-cdeeba1f4402" name="obligation">
+      <columns xmi:uuid="mmuuid:45f2acfb-d540-404d-9a0b-cdeeba1f4402" name="obligation" length="20">
         <type href="http://www.w3.org/2001/XMLSchema#string"/>
       </columns>
     </result>
   </relational:Procedure>
   <relational:Procedure xmi:uuid="mmuuid:dfa29b82-382e-4e3e-acaa-8e6194aea639" name="PersonService_getListPersonByJob" nameInSource="PersonService_getListPersonByJob" function="true">
-    <parameters xmi:uuid="mmuuid:1e21d7d0-2ad7-404b-b09d-66066c6ff42c" name="jobName" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
+    <parameters xmi:uuid="mmuuid:1e21d7d0-2ad7-404b-b09d-66066c6ff42c" name="jobName" length="20" nullable="NULLABLE_UNKNOWN" radix="0">
       <type href="http://www.w3.org/2001/XMLSchema#string"/>
     </parameters>
     <parameters xmi:uuid="mmuuid:038c2155-0c6a-428a-90c6-ee68fd83e91f" name="personList" direction="RETURN" length="4000" nullable="NULLABLE_UNKNOWN" radix="0">
